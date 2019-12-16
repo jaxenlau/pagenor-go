@@ -119,13 +119,14 @@ func (p *Pagenor) Generate() error {
 
 	fileName := strings.Join([]string{nowTime.Format(dateFormat), frontMatter.Title}, "-")
 
-	if err := ioutil.WriteFile(filepath.Join(p.cfg.Path, fileName), output.Bytes(), 0644); err != nil {
+	filePath := filepath.Join(p.cfg.Path, fileName)
+	if err := ioutil.WriteFile(filePath, output.Bytes(), 0644); err != nil {
 		return err
 	}
 
 	var errBuffer bytes.Buffer
 
-	cmd := exec.Command("open", "-a", "typora", fileName)
+	cmd := exec.Command("open", "-a", "typora", filePath)
 	cmd.Stdout = &errBuffer
 	cmd.Stderr = &errBuffer
 
