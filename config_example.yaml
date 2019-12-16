@@ -1,0 +1,19 @@
+pagenor:
+  path: ./
+  layout: post
+  categories:
+    - Blog
+    - Mac
+    - Linux
+    - Vue
+    - Golang
+    - Javascript
+    - VSCode
+    - Kafka
+    - Nginx
+    - etcd
+    - elasticsearch
+    - RabbitMQ
+    - Redis
+    - MySQL
+    - gRPC
