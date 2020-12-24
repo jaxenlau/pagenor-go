@@ -1,6 +1,8 @@
 NAME = pagenor
 PACKAGE = github.com/jaxenlau/pagenor-go
 
+PREFIX = ~/go
+
 BUILD_FLAGS= -v -o $(NAME) main/main.go
 LINUX_ENV_OS=GOOS=linux
 LINUX_ENV_ARCH=GOARCH=amd64
@@ -15,6 +17,14 @@ linux: vendor
 
 vendor:
 	@go mod vendor
+
+.PHONY: install
+install: $(NAME)
+	cp $< $(PREFIX)/bin/$(NAME)
+
+.PHONY: uninstall
+uninstall:
+	rm -f $(PREFIX)/bin/$(NAME)
 
 .PHONY: all vendor
 all:
